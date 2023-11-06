@@ -745,7 +745,7 @@ class Albumentations:
                 bboxes = labels['instances'].bboxes
                 # TODO: add supports of segments and keypoints
                 if self.transform and random.random() < self.p:
-                    print('This is wrong beacsue I did not change Albumentations code for multi task ')
+                    #print('This is wrong beacsue I did not change Albumentations code for multi task ')
                     new = self.transform(image=im, bboxes=bboxes, class_labels=cls)  # transformed
                     if len(new['class_labels']) > 0:  # skip update if no bbox in new im
                         labels['img'] = new['image']
