@@ -345,11 +345,11 @@ class BasePredictor:
 
             # Convert tensor to ndarray and remove the first dimension
             mask1 = im0_list[1][0].to(torch.uint8).cpu().numpy()
-            mask2 = im0_list[2][0].to(torch.uint8).cpu().numpy()
+             #mask2 = im0_list[2][0].to(torch.uint8).cpu().numpy()
 
             # Convert mask to RGB
             color_mask1 = np.stack([mask1 * 0, mask1 * 255, mask1 * 0], axis=-1)
-            color_mask2 = np.stack([mask2 * 255, mask2 * 0, mask2 * 0], axis=-1)
+             #color_mask2 = np.stack([mask2 * 255, mask2 * 0, mask2 * 0], axis=-1)
 
             alpha = 0.5  # transparency factor
 
@@ -357,9 +357,9 @@ class BasePredictor:
             im0[np.any(color_mask1 != [0, 0, 0], axis=-1)] = (1 - alpha) * im0[
                 np.any(color_mask1 != [0, 0, 0], axis=-1)] + alpha * color_mask1[
                                                                  np.any(color_mask1 != [0, 0, 0], axis=-1)]
-            im0[np.any(color_mask2 != [0, 0, 0], axis=-1)] = (1 - alpha) * im0[
-                np.any(color_mask2 != [0, 0, 0], axis=-1)] + alpha * color_mask2[
-                                                                 np.any(color_mask2 != [0, 0, 0], axis=-1)]
+             #im0[np.any(color_mask2 != [0, 0, 0], axis=-1)] = (1 - alpha) * im0[
+                # np.any(color_mask2 != [0, 0, 0], axis=-1)] + alpha * color_mask2[
+                     #                                             np.any(color_mask2 != [0, 0, 0], axis=-1)]
 
             # Save the final image
             cv2.imwrite(save_path, im0)
