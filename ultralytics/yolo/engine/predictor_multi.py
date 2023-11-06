@@ -348,7 +348,7 @@ class BasePredictor:
              #mask2 = im0_list[2][0].to(torch.uint8).cpu().numpy()
 
             # Convert mask to RGB
-            color_mask1 = np.stack([mask1 * 0, mask1 * 255, mask1 * 0], axis=-1)
+            color_mask1 = np.stack([mask1 * 0, mask1 * 165, mask1 * 255], axis=-1)
              #color_mask2 = np.stack([mask2 * 255, mask2 * 0, mask2 * 0], axis=-1)
 
             alpha = 0.5  # transparency factor
