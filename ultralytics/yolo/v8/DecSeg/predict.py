@@ -30,7 +30,7 @@ class MultiPredictor(BasePredictor):
 
     def postprocess_seg(self, preds):
         """Postprocesses YOLO predictions and returns output detections with proto."""
-        preds = torch.nn.functional.interpolate(preds, size=(720, 1280), mode='bilinear', align_corners=False)
+        preds = torch.nn.functional.interpolate(preds, size=(640, 640), mode='bilinear', align_corners=False) #phdbenel modif size
         preds = self.sigmoid(preds)
         _, preds = torch.max(preds, 1)
         return preds
